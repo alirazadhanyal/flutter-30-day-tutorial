@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/pages/home_page.dart';
+import 'package:flutter_application/pages/login_page.dart';
+import 'pages/home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,13 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("Welcome To Raza's First App"),
-          ),
-        ),
-      )
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context) => const HomePage(),
+        "/login": (context) => const LoginPage(),
+      },
     );
   }
 }
