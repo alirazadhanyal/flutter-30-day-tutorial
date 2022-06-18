@@ -65,36 +65,41 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 35,
                     ),
-                    InkWell(
-                      onTap: () async {
-                        setState(() {
-                          changeButton = true;
-                        });
-                        await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRouts.HomeRoute);
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
-                        height: 50,
-                        width: changeButton ? 50 : 150,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            borderRadius: changeButton
-                                ? BorderRadius.circular(50)
-                                : BorderRadius.circular(8)),
-                        child: changeButton
-                            ? Icon(
-                                Icons.done,
-                                color: Colors.white,
-                              )
-                            : Text(
-                                "Login",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
+                    Material(
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 50 : 8),
+                      color: Colors.blueAccent,
+                      child: InkWell(
+                        onTap: () async {
+                          setState(() {
+                            changeButton = true;
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                          Navigator.pushNamed(context, MyRouts.HomeRoute);
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          height: 50,
+                          width: changeButton ? 50 : 150,
+                          alignment: Alignment.center,
+                          // decoration: BoxDecoration(
+                          //     color: Colors.orangeAccent,
+                          //     borderRadius: changeButton
+                          //         ? BorderRadius.circular(50)
+                          //         : BorderRadius.circular(8)),
+                          child: changeButton
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  "Login",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                        ),
                       ),
                     )
                     // ElevatedButton(
