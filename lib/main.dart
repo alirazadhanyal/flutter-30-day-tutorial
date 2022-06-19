@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Utils/routs.dart';
 import 'package:flutter_application/pages/home_page.dart';
 import 'package:flutter_application/pages/login_page.dart';
+import 'package:flutter_application/widgets/themes.dart';
 import 'pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,10 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          fontFamily: GoogleFonts.lato().fontFamily),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       initialRoute: MyRouts.HomeRoute,
       routes: {
         MyRouts.HomeRoute: (context) => const HomePage(),
