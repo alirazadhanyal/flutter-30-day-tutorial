@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Utils/routs.dart';
 import 'package:flutter_application/models/catalog.dart';
 import 'package:flutter_application/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -15,6 +17,14 @@ class HomeDetailsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       backgroundColor: MyTheme.creamColor,
+
+      //cart button
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: MyTheme.darkBlu,
+          child: Icon(CupertinoIcons.cart),
+          onPressed: () {
+            Navigator.pushNamed(context, MyRouts.addToCart);
+          }),
       bottomNavigationBar: Container(
         color: Colors.white,
         child: ButtonBar(
@@ -22,13 +32,11 @@ class HomeDetailsPage extends StatelessWidget {
           children: [
             "Rs. ${catalog.price}".text.xl.bold.red900.make(),
             ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(MyTheme.darkBlu),
-                        shape: MaterialStateProperty.all(StadiumBorder())),
-                    child: "Buy".text.xl.bold.make())
-                .w32(context)
+                onPressed: () {},
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(MyTheme.darkBlu),
+                    shape: MaterialStateProperty.all(StadiumBorder())),
+                child: "Add To Cart".text.lg.bold.make())
           ],
         ).p32(),
       ),

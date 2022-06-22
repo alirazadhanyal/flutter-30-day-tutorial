@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/pages/home_details_page.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -60,7 +61,7 @@ class CatalogItem extends StatelessWidget {
                         backgroundColor:
                             MaterialStateProperty.all(MyTheme.darkBlu),
                         shape: MaterialStateProperty.all(StadiumBorder())),
-                    child: "Buy".text.make())
+                    child: Icon(CupertinoIcons.add))
               ],
             )
           ],
