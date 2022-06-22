@@ -6,9 +6,7 @@ import 'package:flutter_application/pages/home_page.dart';
 import 'package:flutter_application/pages/login_page.dart';
 import 'package:flutter_application/widgets/themes.dart';
 import 'pages/cart_page.dart';
-import 'pages/home_details_page.dart';
 import 'pages/home_page.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,10 +19,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: MyRouts.HomeRoute,
+      initialRoute: MyRouts.LoginRoute,
       routes: {
         MyRouts.HomeRoute: (context) => const HomePage(),
         MyRouts.LoginRoute: (context) => const LoginPage(),

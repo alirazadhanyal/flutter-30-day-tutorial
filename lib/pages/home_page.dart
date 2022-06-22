@@ -1,4 +1,4 @@
-// ignore_for_file: 
+// ignore_for_file:
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: MyTheme.creamColor,
+        backgroundColor: context.canvasColor,
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

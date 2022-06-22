@@ -16,17 +16,20 @@ class HomeDetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
 
       //cart button
       floatingActionButton: FloatingActionButton(
-          backgroundColor: MyTheme.darkBlu,
-          child: Icon(CupertinoIcons.cart),
+          backgroundColor: context.theme.buttonColor,
+          child: Icon(
+            CupertinoIcons.cart,
+            color: context.accentColor,
+          ),
           onPressed: () {
             Navigator.pushNamed(context, MyRouts.addToCart);
           }),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -34,7 +37,8 @@ class HomeDetailsPage extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(MyTheme.darkBlu),
+                    backgroundColor:
+                        MaterialStateProperty.all(context.theme.buttonColor),
                     shape: MaterialStateProperty.all(StadiumBorder())),
                 child: "Add To Cart".text.lg.bold.make())
           ],
@@ -55,16 +59,22 @@ class HomeDetailsPage extends StatelessWidget {
               arcType: VxArcType.CONVEY,
               child: Container(
                 width: context.screenWidth,
-                color: Colors.white,
+                color: context.canvasColor,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      catalog.name.text.bold.xl5.make(),
+                      catalog.name.text
+                          .color(context.accentColor)
+                          .bold
+                          .xl5
+                          .make(),
                       catalog.desc.text.lg.semiBold
                           .textStyle(context.captionStyle)
+                          .color(context.accentColor)
                           .make(),
                       "Cillum id laborum aliquip ut ut sunt velit quis eu veniam. Consectetur ad aute laboris exercitation qui nulla consequat aliqua. Culpa labore nisi fugiat consequat incididunt quis ea est ad officia id consequat nulla adipisicing. Sint consequat ea deserunt minim est velit in eiusmod adipisicing sint excepteur nisi. Nulla sit adipisicing incididunt pariatur dolore irure labore irure."
                           .text
+                          .color(context.accentColor)
                           .make()
                           .pLTRB(16, 0, 16, 0)
                     ],
