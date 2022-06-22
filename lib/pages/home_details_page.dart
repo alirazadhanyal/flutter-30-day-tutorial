@@ -11,7 +11,9 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -46,12 +48,20 @@ class HomeDetailsPage extends StatelessWidget {
               child: Container(
                 width: context.screenWidth,
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    catalog.name.text.bold.xl5.make(),
-                    catalog.desc.text.xl.make()
-                  ],
-                ).py64(),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      catalog.name.text.bold.xl5.make(),
+                      catalog.desc.text.lg.semiBold
+                          .textStyle(context.captionStyle)
+                          .make(),
+                      "Cillum id laborum aliquip ut ut sunt velit quis eu veniam. Consectetur ad aute laboris exercitation qui nulla consequat aliqua. Culpa labore nisi fugiat consequat incididunt quis ea est ad officia id consequat nulla adipisicing. Sint consequat ea deserunt minim est velit in eiusmod adipisicing sint excepteur nisi. Nulla sit adipisicing incididunt pariatur dolore irure labore irure."
+                          .text
+                          .make()
+                          .pLTRB(16, 0, 16, 0)
+                    ],
+                  ).py64(),
+                ),
               ),
             ))
           ],
