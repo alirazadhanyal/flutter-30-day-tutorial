@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_application/models/cart.dart';
@@ -34,13 +36,13 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final cart = CartModel();
     return SizedBox(
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          "Rs. ${_cart.totalPrice}"
+          "Rs. ${cart.totalPrice}"
               .text
               .xl4
               .bold
@@ -63,28 +65,21 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  const _CartList({Key? key}) : super(key: key);
-
-  @override
-  State<_CartList> createState() => _CartLisState();
-}
-
-class _CartLisState extends State<_CartList> {
+class _CartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
-    return _cart.items.isEmpty
+    final cart = CartModel();
+    return cart.items.isEmpty
         ? "Cart Is Empty".text.xl4.make().centered()
         : ListView.builder(
-            itemCount: _cart.items.length,
+            itemCount: cart.items.length,
             itemBuilder: ((context, index) => ListTile(
                 leading: Icon(Icons.done),
-                title: _cart.items[index].name.text.make(),
+                title: cart.items[index].name.text.make(),
                 trailing: IconButton(
                     onPressed: () {
-                      _cart.remove(_cart.items[index]);
-                      setState(() {});
+                      cart.remove(cart.items[index]);
+                      // setState(() {});
                     },
                     icon: Icon(
                       CupertinoIcons.cart_fill_badge_minus,
