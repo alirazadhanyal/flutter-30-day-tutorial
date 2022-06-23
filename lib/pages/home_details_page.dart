@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/Utils/routs.dart';
 import 'package:flutter_application/models/catalog.dart';
+import 'package:flutter_application/pages/home_wedget/add_to_cart.dart';
 import 'package:flutter_application/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -34,13 +35,7 @@ class HomeDetailsPage extends StatelessWidget {
           alignment: MainAxisAlignment.spaceBetween,
           children: [
             "Rs. ${catalog.price}".text.xl.bold.red900.make(),
-            ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(context.theme.buttonColor),
-                    shape: MaterialStateProperty.all(StadiumBorder())),
-                child: "Add To Cart".text.lg.bold.make())
+            AddToCart(catalog: catalog)
           ],
         ).p32(),
       ),

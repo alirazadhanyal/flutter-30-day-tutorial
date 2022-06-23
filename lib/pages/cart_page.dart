@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_application/models/cart.dart';
 import 'package:flutter_application/widgets/themes.dart';
@@ -73,13 +74,22 @@ class _CartLisState extends State<_CartList> {
   @override
   Widget build(BuildContext context) {
     final _cart = CartModel();
-    return ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: ((context, index) => ListTile(
-          leading: Icon(Icons.done),
-          title: _cart.items[index].name.text.make(),
-          trailing:
-              IconButton(onPressed: () {}, icon: Icon(Icons.remove_circle)))),
-    );
+    return _cart.items.isEmpty
+        ? "Cart Is Empty".text.xl4.make().centered()
+        : ListView.builder(
+            itemCount: _cart.items.length,
+            itemBuilder: ((context, index) => ListTile(
+                leading: Icon(Icons.done),
+                title: _cart.items[index].name.text.make(),
+                trailing: IconButton(
+                    onPressed: () {
+                      _cart.remove(_cart.items[index]);
+                      setState(() {});
+                    },
+                    icon: Icon(
+                      CupertinoIcons.cart_fill_badge_minus,
+                      color: Colors.red,
+                    )))),
+          );
   }
 }
