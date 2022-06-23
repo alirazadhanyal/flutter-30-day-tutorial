@@ -23,7 +23,7 @@ class HomeDetailsPage extends StatelessWidget {
           backgroundColor: context.theme.buttonColor,
           child: Icon(
             CupertinoIcons.cart,
-            color: context.accentColor,
+            color: context.cardColor,
           ),
           onPressed: () {
             Navigator.pushNamed(context, MyRouts.addToCart);
