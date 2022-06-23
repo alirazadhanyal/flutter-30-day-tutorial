@@ -1,10 +1,12 @@
 // ignore_for_file:
 
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
+import '../Utils/routs.dart';
 import 'home_wedget/catalog_header.dart';
 import 'home_wedget/catalog_list.dart';
 
@@ -30,6 +32,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: context.canvasColor,
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: context.theme.buttonColor,
+            child: Icon(
+              CupertinoIcons.cart,
+              color: context.cardColor,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, MyRouts.addToCart);
+            }),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,
